@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IPropertyOwner | phosphor-properties</title>
+	<title>IChangedArgs | phosphor-properties</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -57,10 +57,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="ipropertyowner.html">IPropertyOwner</a>
+					<a href="ichangedargs.html">IChangedArgs</a>
 				</li>
 			</ul>
-			<h1>Interface IPropertyOwner</h1>
+			<h1>Interface IChangedArgs</h1>
 		</div>
 	</div>
 </header>
@@ -70,18 +70,15 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>An object which can be used with property descriptors.</p>
+						<p>The arguments object emitted with a <a href="../classes/property.html#changedsignal">changedSignal</a>.</p>
 					</div>
-					<p>Any object can be used with property descriptors, provided that the
-						object has a <a href="ipropertyowner.html#propertychanged">propertyChanged</a> signal. The signal will be emitted
-					automatically by the property descriptor when the value is changed.</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">IPropertyOwner</span>
+						<span class="target">IChangedArgs</span>
 					</li>
 				</ul>
 			</section>
@@ -92,7 +89,9 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ipropertyowner.html#propertychanged" class="tsd-kind-icon">property<wbr>Changed</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ichangedargs.html#newvalue" class="tsd-kind-icon">new<wbr>Value</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ichangedargs.html#oldvalue" class="tsd-kind-icon">old<wbr>Value</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ichangedargs.html#property" class="tsd-kind-icon">property</a></li>
 							</ul>
 						</section>
 					</div>
@@ -101,17 +100,47 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="propertychanged" class="tsd-anchor"></a>
-					<h3>property<wbr>Changed</h3>
-					<div class="tsd-signature tsd-kind-icon">property<wbr>Changed<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ISignal</span><span class="tsd-signature-symbol">&lt;</span><a href="ipropertychangedargs.html" class="tsd-signature-type">IPropertyChangedArgs</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<a name="newvalue" class="tsd-anchor"></a>
+					<h3>new<wbr>Value</h3>
+					<div class="tsd-signature tsd-kind-icon">new<wbr>Value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/phosphorjs/phosphor-properties/blob/HEAD/src/index.ts#L49">index.ts:49</a></li>
+							<li>Defined in <a href="https://github.com/phosphorjs/phosphor-properties/blob/HEAD/src/index.ts#L33">index.ts:33</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>A signal emitted when the value of a property changes.</p>
+							<p>The new value of the property.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="oldvalue" class="tsd-anchor"></a>
+					<h3>old<wbr>Value</h3>
+					<div class="tsd-signature tsd-kind-icon">old<wbr>Value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/phosphorjs/phosphor-properties/blob/HEAD/src/index.ts#L28">index.ts:28</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The old value of the property.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="property" class="tsd-anchor"></a>
+					<h3>property</h3>
+					<div class="tsd-signature tsd-kind-icon">property<span class="tsd-signature-symbol">:</span> <a href="../classes/property.html" class="tsd-signature-type">Property</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/phosphorjs/phosphor-properties/blob/HEAD/src/index.ts#L23">index.ts:23</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The property descriptor associated with the change.</p>
 						</div>
 					</div>
 				</section>
@@ -130,24 +159,27 @@
 					<li class=" tsd-kind-class tsd-has-type-parameter">
 						<a href="../classes/property.html" class="tsd-kind-icon">Property</a>
 					</li>
-					<li class=" tsd-kind-interface">
-						<a href="ipropertychangedargs.html" class="tsd-kind-icon">IProperty<wbr>Changed<wbr>Args</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-has-type-parameter">
-						<a href="ipropertyoptions.html" class="tsd-kind-icon">IProperty<wbr>Options</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="ipropertyowner.html" class="tsd-kind-icon">IProperty<wbr>Owner</a>
+						<a href="ichangedargs.html" class="tsd-kind-icon">IChanged<wbr>Args</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="ipropertyowner.html#propertychanged" class="tsd-kind-icon">property<wbr>Changed</a>
+								<a href="ichangedargs.html#newvalue" class="tsd-kind-icon">new<wbr>Value</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="ichangedargs.html#oldvalue" class="tsd-kind-icon">old<wbr>Value</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="ichangedargs.html#property" class="tsd-kind-icon">property</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-interface tsd-has-type-parameter">
+						<a href="ipropertyoptions.html" class="tsd-kind-icon">IProperty<wbr>Options</a>
+					</li>
 					<li class=" tsd-kind-function">
 						<a href="../globals.html#clearpropertydata" class="tsd-kind-icon">clear<wbr>Property<wbr>Data</a>
 					</li>
