@@ -235,7 +235,7 @@ valueProperty.set(model2, <span class="hljs-number">0</span>);  <span class="hlj
 
   <span class="hljs-keyword">static</span> valueProperty = <span class="hljs-keyword">new</span> Property&lt;MyObject, <span class="hljs-built_in">number</span>&gt;({
     value: <span class="hljs-number">42</span>,
-    changed: onValueChanged,
+    changed: (owner, old, value) =&gt; owner._onValueChanged(old, value),
   });
 
   <span class="hljs-keyword">get</span> value(): <span class="hljs-built_in">number</span> {
@@ -245,13 +245,10 @@ valueProperty.set(model2, <span class="hljs-number">0</span>);  <span class="hlj
   <span class="hljs-keyword">set</span> value(value: <span class="hljs-built_in">number</span>) {
     MyObject.valueProperty.set(<span class="hljs-keyword">this</span>, value);
   }
-}
 
-
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">onValueChanged</span>(<span class="hljs-params">owner: MyObject, oldValue: <span class="hljs-built_in">number</span>, newValue: <span class="hljs-built_in">number</span></span>): <span class="hljs-title">void</span> </span>{
-  <span class="hljs-comment">// Handle the value change. Module-private functions can be considered</span>
-  <span class="hljs-comment">// "friend" functions of the owner object, and casting it to &lt;any&gt; in</span>
-  <span class="hljs-comment">// order to call private or protected methods is a valid pattern.</span>
+  <span class="hljs-keyword">private</span> _onValueChanged(oldValue: <span class="hljs-built_in">number</span>, newValue: <span class="hljs-built_in">number</span>): <span class="hljs-built_in">void</span> {
+    <span class="hljs-comment">// Handle the value change.</span>
+  }
 }
 
 
